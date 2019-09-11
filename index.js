@@ -9,6 +9,7 @@ import {
   View,
   VrButton
 } from 'react-360';
+const {AudioModule} = NativeModules;
 
 const surfaceModule = NativeModules.surfaceModule;
 const Linking = NativeModules.LinkingManager;
@@ -78,10 +79,18 @@ export default class ArtTour extends React.Component {
   render() {
     return (
       <View>
-      <Image source={asset('museum.jpg')} style={{width: 500, height: 300}} />
+      <Image source={asset('logo.png')} style={{width: 500, height: 300}} />
       <View style={styles.attractionBox}>
-          <VrButton onClick={() => surfaceModule.start()}>
-            <Text style={styles.attractionText}> Indulge your senses </Text>
+          <VrButton onClick={() => surfaceModule.start()} >
+
+            <VrButton
+  onClick={() => {
+    AudioModule.playOneShot({
+      source: asset('netherfield.mp3'),
+    });
+  }}>
+            <Text style={styles.attractionText}> Check out our special collection. All profits will go to charity! </Text>
+          </VrButton>
           </VrButton>
         </View>
       </View>
@@ -98,14 +107,14 @@ const styles = StyleSheet.create({
   },
   attractionBox: {
     padding: 10,
-    backgroundColor: '#F7F7F7',
-    borderColor: '#C4002F',
+    backgroundColor: 'black',
+    borderColor: 'pink',
     borderWidth: 1,
     width: 500
   },
   attractionText: {
-    fontSize: 20,
-    color: '#C4002F'
+    fontSize: 16,
+    color: 'white'
   },
 });
 

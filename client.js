@@ -20,6 +20,8 @@ r360 = new ReactInstance(bundle, parent, {
     Surface.SurfaceShape.Cylinder
   );
 
+
+
   introRoot = r360.renderToSurface(
     r360.createRoot('ArtTour', {}),
     introPanel
@@ -32,8 +34,8 @@ r360 = new ReactInstance(bundle, parent, {
   )
 
   banksyPanel.setAngle(
-    0.5,
-    0
+    Math.PI / 2 + 2,
+    0.4
   );
 
   igorPanel = new Surface(
@@ -43,7 +45,7 @@ r360 = new ReactInstance(bundle, parent, {
   )
 
   igorPanel.setAngle(
-    Math.PI / 2 + 0.1,
+    Math.PI / 2 + 1.4,
     0
   );
 
@@ -54,7 +56,7 @@ r360 = new ReactInstance(bundle, parent, {
   )
 
   hushPanel.setAngle(
-    -Math.PI / 2,
+    -Math.PI / 2  ,
     0
   );
 
@@ -65,7 +67,7 @@ r360 = new ReactInstance(bundle, parent, {
   );
 
   museumPanel.setAngle(
-    3.6,
+    4,
     0
   );
 
@@ -81,37 +83,37 @@ class surfaceModule extends Module {
   }
 
   resizeSurface(width, height, id) {
-  if ( id === 'banksy') {
+  if ( id === 'birds') {
     banksyPanel.resize(width, height);
   } else if
-    (id === 'igor') {
+    (id === 'sitting') {
       igorPanel.resize(width, height);
     } else if
-    (id === 'hush') {
+    (id === 'flowers') {
       hushPanel.resize(width, height);
-    } else if (id === 'museum') {
+    } else if (id === 'church') {
     museumPanel.resize(width, height);
     }
 }
 
   start() {
     r360.renderToSurface(
-      r360.createRoot('InfoPanel', {id: 'banksy', text: 'His satirical street art and subversive epigrams combine dark humour with graffiti executed in a distinctive stenciling technique.', site: '5b21ca3eeb7f6fbccd471816'}),
+      r360.createRoot('InfoPanel', {id: 'birds', text: 'Oil paint on heavy duty 100% linen stretched and double-stapled over kiln-dried bars, D-rings and wire, ready to hang..', site: '5b21ca3eeb7f6fbccd471816'}),
       banksyPanel
     );
 
     r360.renderToSurface(
-      r360.createRoot('InfoPanel', {id: 'igor', text: 'Igor work has been seen across Europe thanks to his incredible talent and innovative approach to raising awareness of social and political issues.', site: '5b21ca3eeb7f6fbccd47181f'}),
+      r360.createRoot('InfoPanel', {id: 'sitting', text: 'Painting by Marc Novak, Oil Paint on canvas, stretched and ready to hang.Signed with a certificate of authenticity', site: '5b21ca3eeb7f6fbccd471822'}),
       igorPanel
     );
 
     r360.renderToSurface(
-      r360.createRoot('InfoPanel', {id: 'hush', text: 'Hush’s unique style, recognisable through its focus on the female form set within backgrounds filled with an expressionist’s freedom of layering and colour.', site: '5b21ca3eeb7f6fbccd47181a'}),
+      r360.createRoot('InfoPanel', {id: 'flowers', text: 'Photographic fine art print - archival pigment ink on aquarelle cotton rag.', site: '5b21ca3eeb7f6fbccd47181a'}),
       hushPanel
     );
 
     r360.renderToSurface(
-      r360.createRoot('InfoPanel', {id: 'Hush', text: 'Hush’s unique style, recognisable through its focus on the female form set within backgrounds filled with an expressionist’s freedom of layering and colour.', site: '5b21ca3eeb7f6fbccd47181e'}),
+      r360.createRoot('InfoPanel', {id: 'church', text: 'PASTEL RAIN using a combination of soft pinks, mint and greys, very much the pallet for 2017. Delightful to add to a bedroom with any of these colors. ', site: '5b21ca3eeb7f6fbccd47181e'}),
       museumPanel
     );
 
