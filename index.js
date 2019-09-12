@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Text,
   View,
-  VrButton
+  VrButton,
+  Environment
 } from 'react-360';
 const {AudioModule} = NativeModules;
 
@@ -79,7 +80,8 @@ export default class ArtTour extends React.Component {
   render() {
     return (
       <View>
-      <Image source={asset('logo.png')} style={{width: 500, height: 300}} />
+      <Text style={styles.attractionText1}> Check out our special amateur collection. </Text>
+      <Text style={styles.attractionText1}> Only few paintings left! </Text>
       <View style={styles.attractionBox}>
           <VrButton onClick={() => surfaceModule.start()} >
 
@@ -89,7 +91,7 @@ export default class ArtTour extends React.Component {
       source: asset('netherfield.mp3'),
     });
   }}>
-            <Text style={styles.attractionText}> Check out our special collection. All profits will go to charity! </Text>
+            <Text style={styles.attractionText}> Click here to see the collection! </Text>
           </VrButton>
           </VrButton>
         </View>
@@ -113,7 +115,12 @@ const styles = StyleSheet.create({
     width: 500
   },
   attractionText: {
-    fontSize: 16,
+    fontSize: 19,
+    color: 'white'
+  },
+  attractionText1: {
+    fontSize: 26,
+    backgroundColor: "black",
     color: 'white'
   },
 });
